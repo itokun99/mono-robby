@@ -23,11 +23,11 @@ function fish_prompt
     set_color normal
 
     # Cek dan cetak info Git jika ada
-    if test -n (git_prompt_info)
-        echo -n ' '
+    set -l git_info (fish_git_prompt ' (%s)')
+    if test -n "$git_info"
         # Info branch Git dengan warna putih gading
         set_color dddddd
-        echo -n (git_prompt_info)
+        echo -n $git_info
         set_color normal
     end
 
